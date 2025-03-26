@@ -32,7 +32,7 @@ We demonstrate that cross-site transfer learning significantly improves model pe
 📌 **`scripts/`** → Python scripts for automation, data preprocessing, and model training.
 
 📌 **`src/`** → Source code for the project.
-- **`utils/`** → Helper functions such as logging, preprocessing utilities, and feature engineering.
+- **`utils/`** → Helper functions such as model training/testing functions, data preprocessing, etc.
 
 📌 **`models/`** → Saved machine learning models and model checkpoints.
 
