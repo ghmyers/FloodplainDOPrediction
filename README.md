@@ -29,7 +29,7 @@ We demonstrate that cross-site transfer learning significantly improves model pe
 
 📌 **`notebooks/`** → Jupyter notebooks for analysis, data exploration, and experimentation.
 
-📌 **`scripts/`** → Python scripts for automation, data preprocessing, and model training.
+📌 **`scripts/`** → Python scripts for feature selection, data cleaning, etc. 
 
 📌 **`src/`** → Source code for the project.
 - **`utils/`** → Helper functions such as model training/testing functions, data preprocessing, etc.
