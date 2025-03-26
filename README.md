@@ -1,79 +1,27 @@
 # FloodplainDOPrediction
 
-Short 1-2 sentence summary describing what this project does and why it matters.
+A deep learning framework for predicting floodplain dissolved oxygen using time-series data and transfer learning. 
 
 ---
 
 ## 🌍 Motivation
 
-Why this problem is important, and what real-world context it fits into.
+Floodplain ecosystems are highly sensitive to oxygen fluctuations, with hypoxic events threatening aquatic life and biodiversity. This project uses **LSTM-based recurrent neural networks** and **transfer learning** to predict dissolved oxygen (DO) levels in floodplain wetland sites.
 
-> Example: "Rising turbidity affects aquatic ecosystems and drinking water. This model estimates river turbidity from satellite data to support monitoring and management."
+We demonstrate that cross-site transfer learning significantly improves model performance in **data-scarce floodplain settings**.
 
 ---
 
 ## 🧠 Methods
 
-- Describe the ML/DS approach (e.g., CNN, GNN, LSTM)
-- Mention the data sources and preprocessing strategy
-- If applicable, explain geospatial or time-series aspects
-
----
-
-## ⚙️ Tech Stack
-
-- Python, PyTorch, TensorFlow  
-- SQL (SQLite/PostgreSQL), FastAPI, Docker  
-- Planet Imagery, Google Earth Engine  
-- SLURM, Shell scripting, scikit-learn  
-
----
-
-## 📈 Results
-
-- Evaluation metrics (R², MAE, accuracy, etc.)
-- Benchmarks or comparisons
-- Visuals or plots if available
-
----
-
-## 🚀 Deployment (if applicable)
-
-- FastAPI endpoint (e.g., `/predict`)
-- Deployed on [Heroku/Render/HuggingFace Spaces](#)
-- Dockerized application  
-- How to test the API:  
-  ```bash
-  curl -X POST http://localhost:8000/predict -H "Content-Type: application/json" -d '{"input": "example"}'
-  ```
-
-## 🗃️ Data & Figures
-
-- Input datasets or access instructions  
-- Visual diagrams or conceptual figures  
-  ![Conceptual Diagram](./figures/example_figure.png)  
-- Example input/output pairs or result snapshots
-
----
-
-## 🔍 How to Run
-
-```bash
-git clone https://github.com/yourusername/your-repo-name.git
-cd your-repo-name
-conda create -n myenv python=3.10
-conda activate myenv
-pip install -r requirements.txt
-python src/train.py
-
----
-
-## 📚 References
-
-- [Link to publication or preprint](#)
-- [Relevant research papers, tools, or datasets](#)
-
----
+- **Model Architecture**: LSTM-based time series forecasting  
+- **Transfer Learning Strategy**: Pre-train on one 480 river sites across the CONUS, fine-tune on seven floodplain sites in the Lake Champlain Basin of Vermont.  
+- **Model Comparison**: Compared a river LSTM (trained only on river data), a floodplain LSTM (trained only on floodplain data), and a transfer learning LSTM
+- **Input Features**: 
+  - Daily streamflow and water temperature
+  - Meteorological variables
+  - Static Catchment attributes
+- **Target Variable**: DO
 
 ## 📂 Project Structure
 
