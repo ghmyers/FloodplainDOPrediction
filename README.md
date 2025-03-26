@@ -44,6 +44,6 @@ We demonstrate that cross-site transfer learning significantly improves model pe
 
 **George Harrison Myers**  
 PhD Student | Machine Learning Engineer | Environmental Data Scientist
-[LinkedIn](https://www.linkedin.com/in/harrison-myers-eit-b37156181/) • [Email](mailto:ghmyers96@gmail.com) • [GitHub](https://github.com/finnmyers96)
+[LinkedIn](https://www.linkedin.com/in/harrison-myers-eit-b37156181/) • [Email](mailto:ghmyers96@gmail.com) • [GitHub](https://github.com/ghmyers)
 
 ---
