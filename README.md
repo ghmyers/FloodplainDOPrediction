@@ -20,7 +20,7 @@ We demonstrate that cross-site transfer learning significantly improves model pe
 - **Input Features**: 
   - Daily streamflow and water temperature
   - Meteorological variables
-  - Static Catchment attributes
+  - Static catchment attributes
 - **Target Variable**: DO
 
 ## 📂 Project Structure
