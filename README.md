@@ -6,7 +6,7 @@ A deep learning framework for predicting floodplain dissolved oxygen using time-
 
 ## 🌍 Motivation
 
-Floodplain ecosystems are highly sensitive to oxygen fluctuations, with hypoxic events threatening aquatic life and biodiversity. This project uses **LSTM-based recurrent neural networks** and **transfer learning** to predict dissolved oxygen (DO) levels in floodplain wetland sites.
+Floodplain ecosystems are highly sensitive to oxygen fluctuations, with hypoxic events changing dominant biogeochemical processes and threatening aquatic life. This project uses **LSTM-based recurrent neural networks** and **transfer learning** to predict dissolved oxygen (DO) levels in floodplain wetland sites.
 
 We demonstrate that cross-site transfer learning significantly improves model performance in **data-scarce floodplain settings**.
 
