@@ -48,7 +48,7 @@ This study used a combination of **publicly available datasets** and **in-situ f
 - **Meteorological Data**: Extracted from **DayMET**  
 - **Catchment Attributes**: Processed via **PyNHD**  
 
-📝 **Raw data is not included in this repository.**  
+📝 **Raw data is not included in this repository but can be found here (https://zenodo.org/records/14553375).**  
 📌 **Preprocessing scripts are provided** to enable reproduction using open-access data.
 
 ---
