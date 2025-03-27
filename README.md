@@ -1,27 +1,58 @@
-# FloodplainDOPrediction
+# 🌊 From Rivers to Floodplains: Leveraging Transfer Learning to Predict Floodplain Dissolved Oxygen
 
-A deep learning framework for predicting floodplain dissolved oxygen using time-series data and transfer learning. 
+This repository contains the code and workflows used in the study:  
+**"From Rivers to Floodplains: Leveraging Transfer Learning to Predict Floodplain Dissolved Oxygen"**  
+*(Myers et al., 2025, preprint link below).*
 
 ---
 
-## 🌍 Motivation
+## 📍 Project Overview
 
-Floodplain ecosystems are highly sensitive to oxygen fluctuations, with hypoxic events changing dominant biogeochemical processes and threatening aquatic life. This project uses **LSTM-based recurrent neural networks** and **transfer learning** to predict dissolved oxygen (DO) levels in floodplain wetland sites.
+Floodplains are critical ecosystems for water quality regulation, yet their dissolved oxygen (DO) dynamics remain poorly understood. In this study, we developed a **domain adaptation transfer learning (TL) framework** to predict floodplain DO by leveraging long short-term memory (LSTM) deep learning models trained on river datasets.  
 
-We demonstrate that cross-site transfer learning significantly improves model performance in **data-scarce floodplain settings**.
+
+
+We compared three models:  
+1️⃣ **River LSTM Model** – Trained solely on well-monitored river datasets.  
+2️⃣ **Floodplain LSTM Model** – Trained only on scarce floodplain data.  
+3️⃣ **TL LSTM Model** – Pre-trained on river data, then fine-tuned on floodplain data.  
+
+Our findings highlight that **transfer learning significantly enhances DO prediction performance**, particularly during **low-oxygen periods**, which are critical for understanding biogeochemical processes and ecosystem health.
 
 ---
 
 ## 🧠 Methods
 
-- **Model Architecture**: LSTM-based time series forecasting  
-- **Transfer Learning Strategy**: Pre-train on one 480 river sites across the CONUS, fine-tune on seven floodplain sites in the Lake Champlain Basin of Vermont.  
-- **Model Comparison**: Compared a river LSTM (trained only on river data), a floodplain LSTM (trained only on floodplain data), and a transfer learning LSTM
-- **Input Features**: 
-  - Daily streamflow and water temperature
-  - Meteorological variables
-  - Static catchment attributes
-- **Target Variable**: DO
+- **Deep Learning Model**: Long Short-Term Memory (LSTM) network  
+- **Transfer Learning Approach**: Pre-train on **480 USGS river gages**, fine-tune on **7 floodplain sites**  
+- **Feature Selection**: Dynamic hydrometeorological inputs + static catchment attributes  
+- **Explainable AI**: SHAP values used to interpret model predictions  
+- **Data Sources**: USGS, DayMET, NHD dataset  
+
+📖 *Full methodological details are in the manuscript (linked below).*
+
+---
+
+## ⚙️ Tech Stack
+
+- **Python** (TensorFlow, pandas, NumPy, scikit-learn, SHAP)  
+- **Data Processing**: pandas, PyNHD  
+---
+
+## 🗃️ Data & Figures
+
+This study used a combination of **publicly available datasets** and **in-situ floodplain DO observations**.  
+- **River Training Data**: 480 USGS river gages (1980–2022)  
+- **Floodplain Observations**: 7 floodplain sites in Vermont’s Otter Creek Basin (2019–2023)  
+- **Meteorological Data**: Extracted from **DayMET**  
+- **Catchment Attributes**: Processed via **PyNHD**  
+
+📝 **Raw data is not included in this repository.**  
+📌 **Preprocessing scripts are provided** to enable reproduction using open-access data.
+
+---
+
+## 🔍 How to Run
 
 ## 📂 Project Structure
 
@@ -37,6 +68,12 @@ We demonstrate that cross-site transfer learning significantly improves model pe
 📌 **`models/`** → Saved machine learning models and model checkpoints.
 
 📌 **`config/`** → Configuration files (e.g., `.yaml`, `.json`) for model and script settings.
+
+---
+
+## 📚 Citation
+Myers, G. H., et al. (2025). From Rivers to Floodplains: Leveraging Transfer Learning to Predict Floodplain Dissolved Oxygen.
+📄 Preprint Available Here (https://essopenarchive.org/users/879154/articles/1258431-from-rivers-to-floodplains-leveraging-transfer-learning-to-predict-floodplain-dissolved-oxygen)
 
 ---
 
