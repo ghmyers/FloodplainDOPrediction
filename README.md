@@ -10,7 +10,7 @@ This repository contains the code and workflows used in the study:
 
 Floodplains are critical ecosystems for water quality regulation, yet their dissolved oxygen (DO) dynamics remain poorly understood. In this study, we developed a **domain adaptation transfer learning (TL) framework** to predict floodplain DO by leveraging long short-term memory (LSTM) deep learning models trained on river datasets.  
 
-![Conceptual Model of Floodplain DO](figures/floodplain_do_conceptual_model.png)
+![Conceptual Model of Floodplain DO](figures/floodplain_DO_conceptual_model.png)
 *Simplified conceptual model of floodplain DO dynamics as mediated by hydrologically connected riverine water quality and quantity (Created in BioRender. Myers, H. (2025) https://BioRender.com/y49l602)*
 
 We compared three models:  
