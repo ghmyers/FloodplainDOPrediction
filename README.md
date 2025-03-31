@@ -28,8 +28,10 @@ Our findings highlight that **transfer learning significantly enhances DO predic
 - **Transfer Learning Approach**: Pre-train on **480 USGS river gages**, fine-tune on **7 floodplain sites**  
 - **Feature Selection**: Dynamic hydrometeorological inputs + static catchment attributes  
 - **Explainable AI**: SHAP values used to interpret model predictions  
-- **Data Sources**: USGS, DayMET, NHD dataset  
+- **Data Sources**: USGS, DayMET, NHD, and in-situ floodplain sensor data
+- 
 
+![Conceptual Model of Floodplain DO](figures/model_training_workflow)
 📖 *Full methodological details are in the manuscript (linked below).*
 
 ---
@@ -37,7 +39,7 @@ Our findings highlight that **transfer learning significantly enhances DO predic
 ## ⚙️ Tech Stack
 
 - **Python** (TensorFlow, pandas, NumPy, scikit-learn, SHAP)  
-- **Data Processing**: pandas, PyNHD  
+- **Data Processing**: pandas, pyNHD 
 ---
 
 ## 🗃️ Data & Figures
