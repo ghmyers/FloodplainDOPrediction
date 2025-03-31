@@ -56,8 +56,6 @@ This study used a combination of **publicly available datasets** and **in-situ f
 
 ---
 
-## 🔍 How to Run
-
 ## 📂 Project Structure
 
 ### **🔹 Directory Breakdown**
