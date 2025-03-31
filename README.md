@@ -8,7 +8,7 @@ This repository contains the code and workflows used in the study:
 
 ## 📍 Project Overview
 
-Floodplains are critical ecosystems for water quality regulation, yet their dissolved oxygen (DO) dynamics remain poorly understood. In this study, we developed a **domain adaptation transfer learning (TL) framework** to predict floodplain DO by leveraging long short-term memory (LSTM) deep learning models trained on river datasets. To our knowledge, this is the **first regional predictive model of floodplain DO**.
+Floodplain dissolved oxygen (DO) dynamics are critical for nutrient cycling and ecosystem health but are difficult to predict due to limited monitoring data. This project applied a **transfer learning approach using deep learning models** trained on well-monitored river data and fine-tuned for floodplain conditions. We compared models trained only on river data, only on floodplain data, and a transfer learning model trained on both, finding that transfer learning improved predictions—especially during low DO events. To better understand model behavior, we used **explainable AI techniques** to interpret the predictions and highlight shared process knowledge between rivers and floodplains.
 
 ![Conceptual Model of Floodplain DO](figures/floodplain_DO_conceptual_model)
 *Simplified conceptual model of floodplain DO dynamics as mediated by hydrologically connected riverine water quality and quantity (Created in BioRender. Myers, H. (2025) https://BioRender.com/y49l602)*
@@ -31,7 +31,8 @@ Our findings highlight that **transfer learning significantly enhances DO predic
 - **Data Sources**: USGS, DayMET, NHD, and in-situ floodplain sensor data
 - 
 
-![Conceptual Model of Floodplain DO](figures/model_training_workflow)
+![Conceptual Model of Floodplain DO](figures/model_training_workflow.png)
+*Conceptual diagram of methodological approach. a) river training dataset; b) floodplain dataset; c) feature selection of model inputs; d) river LSTM model; e) floodplain LSTM model; f) TL LSTM model. (Created in BioRender. Myers, H. (2025) https://BioRender.com/b73n623)*
 📖 *Full methodological details are in the manuscript (linked below).*
 
 ---
