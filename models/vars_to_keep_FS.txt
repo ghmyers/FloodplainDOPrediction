@@ -1,0 +1,36 @@
+lat
+FUNGICIDE
+ELEV_MEAN
+LAKEPOND
+N97
+CNPY11_BUFF100
+BASIN_AREA
+NLCD01_52
+ELEV_MAX
+dayl (s)
+HGAD
+prcp (mm/day)
+STRM_DENS
+WDANN
+q
+o
+NLCD01_81
+ELEV_MIN
+HGC
+CONTACT
+BEDPERM_6
+RH
+swe (kg/m2)
+NLCD01_95
+tmin (degrees C)
+BFI
+srad (W/m2)
+SALINAVE
+ARTIFICIAL
+SANDAVE
+sinuosity
+temp
+vp (Pa)
+tmax (degrees C)
+SILTAVE
+lon

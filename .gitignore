@@ -1,0 +1,15 @@
+
+# Ignore virtual environments
+venv/
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store/
+cache
+logs/
+outputs/
+data/
+models/15Features/
+models/32Nodes/
+models/old/
+models/RF/
+models/testing/

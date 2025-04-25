@@ -1,0 +1,12 @@
+seed: 2619
+split_pct: 0.8
+window_length: 8
+hidden_layers: 1
+hidden_units: 8
+batch_size: 4
+n_epochs: 150
+activation_dense: relu
+learning_rate: 0.00008
+dropout: 0.3
+stop_patience: 15
+lr_schedule_patience: 5
