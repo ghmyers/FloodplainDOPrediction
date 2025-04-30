@@ -241,7 +241,10 @@ def analyze_model_results(df_dict, stage_dict=None, stage_thresh=0.05):
                    "TL-FRZ-K LSTM", "TL-FRZ-R LSTM", "Floodplain LSTM"]
     pred_cols   = ["DO_preds_PT", "DO_preds_FT", "DO_preds_FT_FRZ",
                    "DO_preds_FT_FRZ_K", "DO_preds_FT_FRZ_R", "DO_preds_FP"]
-
+    
+    # Store proportions of wet days here
+    wet_days_proportion = dict.fromkeys(df_dict.keys())
+    
     for site, df in df_dict.items():
         actual = df['DO']
         preds  = [df[col] for col in pred_cols]
@@ -276,86 +279,23 @@ def analyze_model_results(df_dict, stage_dict=None, stage_thresh=0.05):
         if stage_dict and site in stage_dict:
             stage_series = stage_dict[site].reindex(df.index)
             wet_ix = stage_series[stage_series >= stage_thresh].index
+            missing_ix = stage_series[stage_series.isna()].index
+
             if len(wet_ix):                             # skip if no wet days
+                wet_days_proportion[site] = len(wet_ix) / (len(df) - len(missing_ix))
                 res_wet = _metrics(actual.loc[wet_ix],
                                    [p.loc[wet_ix] for p in preds])
+                
                 res_wet['site'] = site
                 results_wet.append(res_wet)
+            
 
 
     master_df      = pd.DataFrame(results_full).set_index('site')
     master_df_low  = pd.DataFrame(results_low ).set_index('site')
     master_df_wet  = pd.DataFrame(results_wet ).set_index('site')
 
-    return master_df, master_df_low, master_df_wet
-# def analyze_model_results(df_dict):
-#     results = []
-#     results_low = []
-#     for site, df in df_dict.items():
-#         actual = df['DO']
-#         predictions_PT = df['DO_preds_PT']
-#         predictions_FT = df['DO_preds_FT']
-#         predictions_FT_FRZ = df['DO_preds_FT_FRZ']
-#         predictions_FT_FRZ_KD = df['DO_preds_FT_FRZ_K']
-#         predictions_FT_FRZ_RD = df['DO_preds_FT_FRZ_R']
-#         predictions_FP = df['DO_preds_FP']
-#         pred_list = [predictions_PT, predictions_FT, predictions_FT_FRZ, predictions_FT_FRZ_KD, predictions_FT_FRZ_RD, predictions_FP]
-#         model_names = ["River LSTM", "TL LSTM", "TL-FRZ LSTM", "TL-FRZ-K LSTM", "TL-FRZ-R LSTM", "Floodplain LSTM"]
-#         performance_metrics = {}
-#         for i, predictions in enumerate(pred_list):
-#             rmse = math.sqrt(mean_squared_error(actual, predictions))
-#             r2 = r2_score(actual, predictions)
-#             kge = he.evaluator(he.kge, actual, predictions)
-#             bias = he.evaluator(he.pbias, actual, predictions)
-#             performance_metrics[f"{model_names[i]} RMSE"] = round(rmse, 2)
-#             performance_metrics[f'{model_names[i]} KGE'] = round(kge[0][0], 2)
-#             performance_metrics[f"{model_names[i]} R{chr(0x00B2)}"] = round(r2, 2)
-#             performance_metrics[f'{model_names[i]} Bias'] = round(bias[0], 2)
-        
-#         performance_metrics['site'] = site
-#         results.append(performance_metrics)
-    
-#     master_df = pd.DataFrame(results).set_index('site')
-    
-#     # Perform same analysis for low DO timeperiods
-#     for site, df in df_dict.items():
-#         print(site)
-#         actual = df['DO']
-#         predictions_PT = df['DO_preds_PT']
-#         predictions_FT = df['DO_preds_FT']
-#         predictions_FT_FRZ = df['DO_preds_FT_FRZ']
-#         predictions_FT_FRZ_KD = df['DO_preds_FT_FRZ_K']
-#         predictions_FT_FRZ_RD = df['DO_preds_FT_FRZ_R']
-#         predictions_FP = df['DO_preds_FP']
-#         model_names = ["River LSTM", "TL LSTM", "TL-FRZ LSTM", "TL-FRZ-K LSTM", "TL-FRZ-R LSTM", "Floodplain LSTM"]
-#         performance_metrics_low = {}
-    
-#         low_inds = actual[actual < 5].index.tolist()
-#         actual_low = actual[low_inds]
-#         predictions_PT_low = predictions_PT[low_inds]
-#         predictions_FT_low = predictions_FT[low_inds]
-#         predictions_FT_FRZ_low = predictions_FT_FRZ[low_inds]
-#         predictions_FT_FRZ_KD_low = predictions_FT_FRZ_KD[low_inds]
-#         predictions_FT_FRZ_RD_low = predictions_FT_FRZ_RD[low_inds]
-#         predictions_FP_low = predictions_FP[low_inds]
-#         pred_list_low = [predictions_PT_low, predictions_FT_low, predictions_FT_FRZ_low, predictions_FT_FRZ_KD_low, predictions_FT_FRZ_RD_low, predictions_FP_low]
-        
-#         for i, predictions in enumerate(pred_list_low):
-#             rmse = math.sqrt(mean_squared_error(actual_low, predictions))
-#             r2 = r2_score(actual_low, predictions)
-#             kge = he.evaluator(he.kge, actual_low, predictions)
-#             bias = he.evaluator(he.pbias, actual_low, predictions)
-#             performance_metrics_low[f"{model_names[i]} RMSE"] = round(rmse, 2)
-#             performance_metrics_low[f'{model_names[i]} KGE'] = round(kge[0][0], 2)
-#             performance_metrics_low[f"{model_names[i]} R{chr(0x00B2)}"] = round(r2, 2)
-#             performance_metrics_low[f'{model_names[i]} Bias'] = round(bias[0], 2)
-    
-#         performance_metrics_low['site'] = site
-#         results_low.append(performance_metrics_low)
-    
-#     master_df_low = pd.DataFrame(results_low).set_index('site')
-
-#     return master_df, master_df_low
+    return master_df, master_df_low, master_df_wet, wet_days_proportion
 
 def analyze_model_results_noKDFRZ(df_dict):
     results = []
