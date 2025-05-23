@@ -74,7 +74,7 @@ This study used a combination of **publicly available datasets** and **in-situ f
 
 ## 📚 Citation
 Myers, G. H., et al. (2025). From Rivers to Floodplains: Leveraging Transfer Learning to Predict Floodplain Dissolved Oxygen.
-📄 Preprint Available Here (https://essopenarchive.org/users/879154/articles/1258431-from-rivers-to-floodplains-leveraging-transfer-learning-to-predict-floodplain-dissolved-oxygen)
+📄 Preprint Available [Here] (https://essopenarchive.org/users/879154/articles/1258431-from-rivers-to-floodplains-leveraging-transfer-learning-to-predict-floodplain-dissolved-oxygen)
 
 ---
 
